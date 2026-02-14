@@ -113,17 +113,10 @@
                 }
             }
 
+            var tree = new Tree(canvas[0], width, height, opts);
             var seed = tree.seed;
             var foot = tree.footer;
             var hold = 1;
-
-            // Global click/touch fallback for audio
-            $(document).one('click touchstart', function () {
-                var audio = document.getElementById('bgm');
-                if (audio.paused) {
-                    audio.play().catch(function (e) { console.log("Audio play failed: ", e); });
-                }
-            });
 
             canvas.click(function (e) {
                 var offset = canvas.offset(), x, y;
@@ -134,7 +127,6 @@
                     canvas.unbind("click");
                     canvas.unbind("mousemove");
                     canvas.removeClass('hand');
-                    document.getElementById('bgm').play();
                 }
             }).mousemove(function (e) {
                 var offset = canvas.offset(), x, y;
