@@ -127,6 +127,7 @@
                     canvas.unbind("click");
                     canvas.unbind("mousemove");
                     canvas.removeClass('hand');
+                    document.getElementById('bgm').play();
                 }
             }).mousemove(function (e) {
                 var offset = canvas.offset(), x, y;
